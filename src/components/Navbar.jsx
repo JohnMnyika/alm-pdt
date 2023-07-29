@@ -14,7 +14,7 @@ const Navbar = () => {
         {/* Logo */}
         <NavLink className="navbar-brand d-flex align-items-center fw-bold fs-4 px-2" to="/">
           <img src={logo} alt="Almond Products" height="40" className="mr-2" />
-          Almond Products Ltd
+          Almon Products Ltd
         </NavLink>
         
         <button className="navbar-toggler mx-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
