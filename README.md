@@ -14,9 +14,6 @@ An Ecommerce Website made with React.js Framework.
 
 ## Screenshots
 
-![App Screenshot]()
-
-
 
 ## Run Locally
 
