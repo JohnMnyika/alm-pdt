@@ -121,11 +121,6 @@ const ContactPage = () => {
               <p>Email: almonqie@yahoo.com</p>
               <p>Website: www.almonproducts.com</p>
             </div>
-
-            <div className="mt-5">
-              <h5>About Almon Products Limited:</h5>
-              <p>Dealers in Signs, Promotion & Advertisement Materials, Branding, Printing, Stationary abd M-Pesa Agent</p>
-            </div>
           </div>
         </div>
       </div>

@@ -8,7 +8,7 @@ const AboutPage = () => {
         <h1 className="text-center">About Us</h1>
         <hr />
         <p className="lead text-center">
-        At VinylVibe, we are passionate about the artistry and versatility of vinyl. Our journey began with a vision to provide 
+        At Almon Products Ltd, we are passionate about the artistry and versatility of vinyl. Our journey began with a vision to provide 
         top-quality vinyl products that enrich spaces and ignite creativity. With a deep appreciation for design and innovation, 
         we carefully curate a captivating collection of vinyl mats, celluca boards, frosted window vinyl, forex boards, transparent vinyl, and more.
 
