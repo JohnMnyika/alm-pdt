@@ -14,7 +14,7 @@ const Register = () => {
                             <div class="form my-3">
                                 <label for="Name">Full Name</label>
                                 <input
-                                    type="email"
+                                    type="name"
                                     class="form-control"
                                     id="Name"
                                     placeholder="Enter Your Name"
