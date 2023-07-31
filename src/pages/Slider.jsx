@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 
 const Slider = () => {
   const sliderImages = [
-    '/assets/aluco.jpg',
-    '/assets/main.jpg',
-    '/assets/momson.jpg',
+    { path: '/assets/aluco.jpg', description: 'Enhance privacy and add an elegant touch to your windows' },
+    { path: '/assets/momson.jpg', description: 'A see-through material perfect for creating eye-catching displays on windows, glass, or any smooth surface.' },
+    { path: '/assets/fostedwindow.jpg', description: 'A see-through material perfect for creating eye-catching displays on windows, glass, or any smooth surface.' },
+    { path: '/assets/broadbase.jpg', description: 'A see-through material perfect for creating eye-catching displays on windows, glass, or any smooth surface.' },
   ];
 
   const [activeIndex, setActiveIndex] = useState(0);
@@ -28,17 +29,20 @@ const Slider = () => {
   };
 
   if (sliderImages.length === 0) {
-    return null; 
+    return null;
   }
 
-  const renderImage = (image, index) => (
+  const renderImage = (imageData, index) => (
     <div key={index} className={`carousel-item${index === activeIndex ? ' active' : ''}`}>
       <img
-        src={image}
+        src={imageData.path}
         className="d-block w-100"
-        alt={`Slider Image ${index + 1}`}
+        alt={imageData.description}
         loading="lazy"
       />
+      <div className="carousel-caption">
+        <p>{imageData.description}</p>
+      </div>
     </div>
   );
 

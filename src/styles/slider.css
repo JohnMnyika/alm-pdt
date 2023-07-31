@@ -1,0 +1,27 @@
+/* Slider.css */
+.carousel-inner img {
+    height: 400px; 
+    object-fit: cover;
+  }
+  
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 5%;
+    background: rgba(0, 0, 0, 0.3);
+  }
+  
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    background-image: none;
+  }
+  
+  .carousel-control-prev-icon::before,
+  .carousel-control-next-icon::before {
+    content: '‹'; 
+    color: white;
+    font-size: 30px;
+  }
+  .carousel-control-next-icon::before {
+    content: '›';
+  }
+  
