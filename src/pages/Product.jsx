@@ -7,6 +7,13 @@ import { addCart } from "../redux/action";
 
 import { Footer, Navbar } from "../components";
 
+// Import your product images
+import vinylMatImage from "../assets/vinylmatt.jpg";
+import cellucaBoardImage from "../assets/CelucaBoards.jpg";
+import frostedWindowVinylImage from "../assets/frostedwindows.jpg";
+import forexBoardImage from "../assets/forexboards.jpg";
+import transparentVinylImage from "../assets/transparentvinyl.jpg";
+
 const Product = () => {
   const { id } = useParams();
   const [product, setProduct] = useState([]);
@@ -21,18 +28,39 @@ const Product = () => {
   };
 
   useEffect(() => {
-    const getProduct = async () => {
+    const getProduct = () => {
       setLoading(true);
       setLoading2(true);
-      const response = await fetch(`https://fakestoreapi.com/products/${id}`);
-      const data = await response.json();
-      setProduct(data);
-      setLoading(false);
-      const response2 = await fetch(
-        `https://fakestoreapi.com/products/category/${data.category}`
+
+      const data = [
+        {
+          id: 1,
+          title: "Vinyl Mat",
+          description: "Description of Vinyl Mat",
+          price: 15.99,
+          image: vinylMatImage,
+          category: "Vinyl Mats",
+        },
+        {
+          id: 2,
+          title: "Celluca Board",
+          description: "Description of Celluca Board",
+          price: 25.99,
+          image: cellucaBoardImage,
+          category: "Celluca Boards",
+        },
+        // Add more products with their information and image paths
+      ];
+
+      const selectedProduct = data.find((item) => item.id === parseInt(id));
+      setProduct(selectedProduct);
+
+      const similarProductsData = data.filter(
+        (item) => item.category === selectedProduct.category
       );
-      const data2 = await response2.json();
-      setSimilarProducts(data2);
+      setSimilarProducts(similarProductsData);
+
+      setLoading(false);
       setLoading2(false);
     };
     getProduct();
@@ -128,46 +156,39 @@ const Product = () => {
       <>
         <div className="py-4 my-4">
           <div className="d-flex">
-            {similarProducts.map((item) => {
-              return (
-                <div key={item.id} className="card mx-4 text-center">
-                  <img
-                    className="card-img-top p-3"
-                    src={item.image}
-                    alt="Card"
-                    height={300}
-                    width={300}
-                  />
-                  <div className="card-body">
-                    <h5 className="card-title">
-                      {item.title.substring(0, 15)}...
-                    </h5>
-                  </div>
-                  {/* <ul className="list-group list-group-flush">
-                    <li className="list-group-item lead">${product.price}</li>
-                  </ul> */}
-                  <div className="card-body">
-                    <Link
-                      to={"/product/" + item.id}
-                      className="btn btn-dark m-1"
-                    >
-                      Buy Now
-                    </Link>
-                    <button
-                      className="btn btn-dark m-1"
-                      onClick={() => addProduct(item)}
-                    >
-                      Add to Cart
-                    </button>
-                  </div>
+            {similarProducts.map((item) => (
+              <div key={item.id} className="card mx-4 text-center">
+                <img
+                  className="card-img-top p-3"
+                  src={item.image}
+                  alt="Card"
+                  height={300}
+                  width={300}
+                />
+                <div className="card-body">
+                  <h5 className="card-title">
+                    {item.title.substring(0, 15)}...
+                  </h5>
                 </div>
-              );
-            })}
+                <div className="card-body">
+                  <Link to={"/product/" + item.id} className="btn btn-dark m-1">
+                    Buy Now
+                  </Link>
+                  <button
+                    className="btn btn-dark m-1"
+                    onClick={() => addProduct(item)}
+                  >
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </>
     );
   };
+
   return (
     <>
       <Navbar />
@@ -175,12 +196,8 @@ const Product = () => {
         <div className="row">{loading ? <Loading /> : <ShowProduct />}</div>
         <div className="row my-5 py-5">
           <div className="d-none d-md-block">
-          <h2 className="">You may also Like</h2>
-            <Marquee
-              pauseOnHover={true}
-              pauseOnClick={true}
-              speed={50}
-            >
+            <h2 className="">You may also Like</h2>
+            <Marquee pauseOnHover={true} pauseOnClick={true} speed={50}>
               {loading2 ? <Loading2 /> : <ShowSimilarProduct />}
             </Marquee>
           </div>
