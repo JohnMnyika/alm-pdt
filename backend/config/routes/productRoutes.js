@@ -1,12 +1,12 @@
-// routes/productRoutes.js
 const express = require('express');
 const router = express.Router();
-const Product = require('../models/Product');
+const productModel = require('../models/productModel');
 
+// GET product by ID
 router.get('/:id', async (req, res) => {
   const { id } = req.params;
   try {
-    const product = await Product.getById(id);
+    const product = await productModel.getProductById(id);
     res.json(product);
   } catch (error) {
     console.error(error);
@@ -14,10 +14,11 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+// GET similar products by category
 router.get('/similar/:category/:id', async (req, res) => {
   const { category, id } = req.params;
   try {
-    const similarProducts = await Product.getSimilarProducts(category, id);
+    const similarProducts = await productModel.getSimilarProducts(category, id);
     res.json(similarProducts);
   } catch (error) {
     console.error(error);

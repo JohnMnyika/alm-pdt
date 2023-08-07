@@ -1,7 +1,8 @@
-// backend/index.js
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const { Pool } = require('pg');
+
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -9,12 +10,21 @@ const port = process.env.PORT || 3000;
 app.use(cors());
 app.use(bodyParser.json());
 
-// Add your database configuration
-const pool = require('./config/dbConfig');
+// Database configuration
+const pool = new Pool({
+  user: 'spike',     
+  host: 'localhost',            
+  database: 'almonproduct',     
+  password: 'spike123', 
+  port: 5432,                   
+});
 
-// Add your product routes
-const productRoutes = require('./routes/productRoutes');
-app.use('/api/products', productRoutes);
+// Define your API endpoints here
+
+// Example endpoint for testing
+app.get('/api/test', (req, res) => {
+  res.json({ message: 'Hello, World!' });
+});
 
 // Start the server
 app.listen(port, () => {

@@ -1,8 +1,7 @@
-// models/Product.js
-const pool = require('../config/dbConfig');
+const pool = require('../index');
 
-const Product = {
-  getById: async (id) => {
+const productModel = {
+  getProductById: async (id) => {
     try {
       const query = 'SELECT * FROM products WHERE id = $1';
       const { rows } = await pool.query(query, [id]);
@@ -11,10 +10,10 @@ const Product = {
       throw error;
     }
   },
-  getSimilarProducts: async (category, productId) => {
+  getSimilarProducts: async (category, id) => {
     try {
       const query = 'SELECT * FROM products WHERE category = $1 AND id <> $2';
-      const { rows } = await pool.query(query, [category, productId]);
+      const { rows } = await pool.query(query, [category, id]);
       return rows;
     } catch (error) {
       throw error;
@@ -22,4 +21,4 @@ const Product = {
   },
 };
 
-module.exports = Product;
+module.exports = productModel;
