@@ -22,7 +22,7 @@ const Products = () => {
             id: 1,
             title: "Vinyl Mat",
             description: "Description of Vinyl Mat",
-            price: 15.99,
+            price: 300.00,
             image: vinylMatImage,
             category: "Vinyl Mats",
         },
@@ -30,7 +30,7 @@ const Products = () => {
             id: 2,
             title: "Celluca Board",
             description: "Description of Celluca Board",
-            price: 25.99,
+            price: 4500.00,
             image: cellucaBoardImage,
             category: "Celluca Boards",
         },
@@ -38,7 +38,7 @@ const Products = () => {
             id: 3,
             title: "Frosted Window Vinyl",
             description: "Description of Frosted Window Vinyl",
-            price: 19.99,
+            price: 370.00,
             image: frostedWindowVinylImage,
             category: "Frosted Window Vinyl",
         },
@@ -46,7 +46,7 @@ const Products = () => {
             id: 4,
             title: "Forex Board",
             description: "Description of Forex Board",
-            price: 12.99,
+            price: 1100.00,
             image: forexBoardImage,
             category: "Forex Boards",
         },
@@ -54,7 +54,7 @@ const Products = () => {
             id: 5,
             title: "Transparent Vinyl",
             description: "Description of Transparent Vinyl",
-            price: 17.99,
+            price: 300.00,
             image: transparentVinylImage,
             category: "Transparent Vinyl",
         },
@@ -109,9 +109,7 @@ const Products = () => {
                                     <p className="card-text">{product.description.substring(0, 90)}...</p>
                                 </div>
                                 <ul className="list-group list-group-flush">
-                                    <li className="list-group-item lead">$ {product.price}</li>
-                                    {/* <li className="list-group-item">Dapibus ac facilisis in</li>
-                    <li className="list-group-item">Vestibulum at eros</li> */}
+                                    <li className="list-group-item lead">Ksh {product.price}</li>
                                 </ul>
                                 <div className="card-body">
                                     <Link to={"/product/" + product.id} className="btn btn-dark m-1">

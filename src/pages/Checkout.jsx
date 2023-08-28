@@ -21,7 +21,7 @@ const Checkout = () => {
     );
   };
 
-  const [paymentMethod, setPaymentMethod] = useState(""); // State to track selected payment method
+  const [paymentMethod, setPaymentMethod] = useState(""); 
 
   const handlePaymentSubmit = (event) => {
     event.preventDefault();
